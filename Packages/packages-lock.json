@@ -28,8 +28,8 @@
       "depth": 0,
       "source": "builtin",
       "dependencies": {
-        "com.unity.xr.oculus": "3.2.3",
-        "com.unity.xr.openxr": "1.7.0"
+        "com.unity.xr.oculus": "3.2.2",
+        "com.unity.xr.openxr": "1.6.0"
       }
     },
     "com.unity.ide.rider": {
@@ -218,7 +218,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.oculus": {
-      "version": "3.2.3",
+      "version": "3.2.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {
