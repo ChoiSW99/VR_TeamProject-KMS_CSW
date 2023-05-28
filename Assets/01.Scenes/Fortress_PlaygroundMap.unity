@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1566,6 +1566,7 @@ GameObject:
   - component: {fileID: 58773951}
   - component: {fileID: 58773950}
   - component: {fileID: 58773949}
+  - component: {fileID: 58773953}
   m_Layer: 0
   m_Name: RightHand Controller
   m_TagString: Untagged
@@ -1955,8 +1956,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 7111071080452410799, guid: a2e8ee2005c074447b929af42b7f5068,
-    type: 3}
+  m_ModelPrefab: {fileID: 0}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -2131,6 +2131,36 @@ MonoBehaviour:
     m_Reference: {fileID: 875253871413052681, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!114 &58773953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58773947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a8d337e8bc7ac4498e0df29e7b8bd5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action:
+    m_Name: Action
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f24886c7-372c-4936-914d-a27c3ed34e63
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  OnPress:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHold:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRelease:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &60986788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10545,6 +10575,7 @@ GameObject:
   - component: {fileID: 428788367}
   - component: {fileID: 428788366}
   - component: {fileID: 428788365}
+  - component: {fileID: 428788369}
   m_Layer: 0
   m_Name: LeftHand Controller
   m_TagString: Untagged
@@ -10934,8 +10965,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 8848131633249631744, guid: eb91affb984e740dbb2082626ba96efb,
-    type: 3}
+  m_ModelPrefab: {fileID: 0}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
@@ -11110,6 +11140,36 @@ MonoBehaviour:
     m_Reference: {fileID: 7779212132400271959, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!114 &428788369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428788363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a8d337e8bc7ac4498e0df29e7b8bd5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action:
+    m_Name: Action
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a4849185-f1ca-4bf9-afc0-d07fb061285e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  OnPress:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHold:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRelease:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &437103522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25269,6 +25329,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87259ca8cb1ab39448be2bf518b8ad6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  num_Normalbomb: 0
+  num_Waterbomb: 0
+  num_Firebomb: 0
+  TMP_Normalbomb: {fileID: 0}
+  TMP_Waterbomb: {fileID: 0}
+  TMP_Firebomb: {fileID: 0}
+  loadedBombPrefab: {fileID: 0}
+  hp: 0
+  status: 
+  bombButtons: []
+  loadedBombNumber: 0
 --- !u!1001 &1280851906
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25942,6 +26013,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2457601262040078919, guid: dc84a58afe1344547a230a5cb3c072c8,
+        type: 3}
+      propertyPath: m_TagString
+      value: TANK
+      objectReference: {fileID: 0}
     - target: {fileID: 3011469963919986407, guid: dc84a58afe1344547a230a5cb3c072c8,
         type: 3}
       propertyPath: m_RootOrder
@@ -26027,10 +26103,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3503318476722469206, guid: dc84a58afe1344547a230a5cb3c072c8,
+        type: 3}
+      propertyPath: m_TagString
+      value: TANK
+      objectReference: {fileID: 0}
+    - target: {fileID: 5141778953273021482, guid: dc84a58afe1344547a230a5cb3c072c8,
+        type: 3}
+      propertyPath: m_TagString
+      value: TANK
+      objectReference: {fileID: 0}
     - target: {fileID: 6167023607199064823, guid: dc84a58afe1344547a230a5cb3c072c8,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7005844867858544567, guid: dc84a58afe1344547a230a5cb3c072c8,
+        type: 3}
+      propertyPath: m_TagString
+      value: TANK
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc84a58afe1344547a230a5cb3c072c8, type: 3}
@@ -38699,6 +38790,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal  Bomb
       objectReference: {fileID: 0}
+    - target: {fileID: 1861992942112290052, guid: ab0629588251841459e48150b154519c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1861992942112290072, guid: ab0629588251841459e48150b154519c,
         type: 3}
       propertyPath: m_RootOrder
@@ -38768,6 +38864,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water Bomb
       objectReference: {fileID: 0}
+    - target: {fileID: 1861992942112290052, guid: dba774b57d70ab24b9c8808b5d6e40a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1861992942112290072, guid: dba774b57d70ab24b9c8808b5d6e40a8,
         type: 3}
       propertyPath: m_RootOrder
@@ -38836,6 +38937,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fire Bomb
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861992942112290052, guid: 9df3335bfa439f642b99e35890d824dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1861992942112290072, guid: 9df3335bfa439f642b99e35890d824dd,
         type: 3}
