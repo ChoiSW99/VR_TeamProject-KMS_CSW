@@ -50,7 +50,7 @@ public class OnButtonPress : MonoBehaviour
     }
 
     private void Holded(InputAction.CallbackContext context)
-    {
+    { 
         OnHold.Invoke();
     }
 

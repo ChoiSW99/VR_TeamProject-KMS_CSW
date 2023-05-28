@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1567,6 +1567,8 @@ GameObject:
   - component: {fileID: 58773950}
   - component: {fileID: 58773949}
   - component: {fileID: 58773953}
+  - component: {fileID: 58773955}
+  - component: {fileID: 58773954}
   m_Layer: 0
   m_Name: RightHand Controller
   m_TagString: Untagged
@@ -1596,7 +1598,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58773947}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
   m_Name: 
@@ -1731,7 +1733,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58773947}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1830,7 +1832,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58773947}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
@@ -2147,14 +2149,143 @@ MonoBehaviour:
     m_Name: Action
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: f24886c7-372c-4936-914d-a27c3ed34e63
+    m_Id: 14e8ae99-843e-4ba5-b70f-51a3aeb1d69a
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 6bbbd7cc-0531-4ce9-9003-579bae050683
+      m_Path: <XRController>{RightHand}/gripButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Action
+      m_Flags: 0
     m_Flags: 0
   OnPress:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1264653385}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ChangeBomb_RightGrupBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHold:
+    m_PersistentCalls:
       m_Calls: []
+  OnRelease:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &58773954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58773947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e42b0a565bbce52428a417b892af2954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action:
+    m_Name: Action
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 453e372e-279d-4b38-8a02-484ef0494133
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 7603606c-900f-4c1e-b3cb-db0f4907860f
+      m_Path: <XRController>{RightHand}/secondary2DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Action
+      m_Flags: 0
+    m_Flags: 0
+  OnXValueChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnYValueChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &58773955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58773947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a8d337e8bc7ac4498e0df29e7b8bd5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action:
+    m_Name: Action
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 46e13588-f327-4c28-9930-b8d939dcce77
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: acca7063-11f5-4ad7-97fe-4e3e6cae4b2e
+      m_Path: <XRController>{RightHand}/triggerButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Action
+      m_Flags: 0
+    m_Flags: 0
+  OnPress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1264653385}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Shoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHold:
     m_PersistentCalls:
       m_Calls: []
@@ -7380,6 +7511,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 303790326}
+        m_TargetAssemblyTypeName: PlayQuickSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &303790320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7430,7 +7573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8965fadea6cea124ab9ad938f64a1fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombLoadTr: {fileID: 679038061}
+  bombLoadTr: {fileID: 1305012624}
   bombPrefab: {fileID: 1861992942112290052, guid: 9df3335bfa439f642b99e35890d824dd,
     type: 3}
 --- !u!114 &303790326
@@ -10576,6 +10719,8 @@ GameObject:
   - component: {fileID: 428788366}
   - component: {fileID: 428788365}
   - component: {fileID: 428788369}
+  - component: {fileID: 428788371}
+  - component: {fileID: 428788370}
   m_Layer: 0
   m_Name: LeftHand Controller
   m_TagString: Untagged
@@ -10605,7 +10750,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428788363}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
   m_Name: 
@@ -10740,7 +10885,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428788363}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -10839,7 +10984,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428788363}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
@@ -11156,10 +11301,103 @@ MonoBehaviour:
     m_Name: Action
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: a4849185-f1ca-4bf9-afc0-d07fb061285e
+    m_Id: c54daf5e-4c5e-46b9-bb7a-7a996a19eaa3
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 84078b04-ca76-459a-ae0b-185849deac11
+      m_Path: <XRController>{LeftHand}/gripButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Action
+      m_Flags: 0
+    m_Flags: 0
+  OnPress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1264653385}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ChangeBomb_LeftGripBtn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHold:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRelease:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &428788370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428788363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e42b0a565bbce52428a417b892af2954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action:
+    m_Name: Action
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 18bc96fb-c23c-419c-bdad-f2f4b90d2082
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1f0b13a0-0144-418f-9083-c6c67fab65fc
+      m_Path: <XRController>{LeftHand}/primary2DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Action
+      m_Flags: 0
+    m_Flags: 0
+  OnXValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnYValueChange:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &428788371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428788363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a8d337e8bc7ac4498e0df29e7b8bd5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action:
+    m_Name: Action
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c1e87eed-3729-47c6-8489-15ed36a2b542
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: f61d36d3-f77a-46d2-8f04-abb3f921de23
+      m_Path: <XRController>{LeftHand}/triggerButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Action
+      m_Flags: 0
     m_Flags: 0
   OnPress:
     m_PersistentCalls:
@@ -12423,7 +12661,7 @@ GameObject:
   - component: {fileID: 506440249}
   - component: {fileID: 506440248}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Normal bomb Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14406,7 +14644,7 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 9f5a24a380916d14db9775daab4fe333,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
@@ -15108,37 +15346,6 @@ Transform:
   - {fileID: 1313711681}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &679038060
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 679038061}
-  m_Layer: 0
-  m_Name: BombLoadPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &679038061
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 679038060}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.1, y: 17.9, z: 7.99}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &684639112
 PrefabInstance:
@@ -18628,6 +18835,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 887065418}
+        m_TargetAssemblyTypeName: PlayQuickSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &887065412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18678,7 +18897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8965fadea6cea124ab9ad938f64a1fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombLoadTr: {fileID: 679038061}
+  bombLoadTr: {fileID: 1305012624}
   bombPrefab: {fileID: 1861992942112290052, guid: dba774b57d70ab24b9c8808b5d6e40a8,
     type: 3}
 --- !u!114 &887065418
@@ -20101,7 +20320,7 @@ GameObject:
   - component: {fileID: 1008520093}
   - component: {fileID: 1008520092}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Fire bomb Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25086,7 +25305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8965fadea6cea124ab9ad938f64a1fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombLoadTr: {fileID: 679038061}
+  bombLoadTr: {fileID: 1305012624}
   bombPrefab: {fileID: 1861992942112290052, guid: ab0629588251841459e48150b154519c,
     type: 3}
 --- !u!114 &1248878934
@@ -25315,7 +25534,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1264653385
 MonoBehaviour:
@@ -25329,16 +25548,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87259ca8cb1ab39448be2bf518b8ad6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  num_Normalbomb: 0
-  num_Waterbomb: 0
-  num_Firebomb: 0
-  TMP_Normalbomb: {fileID: 0}
-  TMP_Waterbomb: {fileID: 0}
-  TMP_Firebomb: {fileID: 0}
+  remainingBomb: 640000000a00000001000000
+  TMP_bombs:
+  - {fileID: 506440248}
+  - {fileID: 1392882103}
+  - {fileID: 1008520092}
   loadedBombPrefab: {fileID: 0}
-  hp: 0
-  status: 
-  bombButtons: []
+  myHp: 0
+  myStatus: 
+  bombButtons:
+  - {fileID: 1248878925}
+  - {fileID: 887065409}
+  - {fileID: 303790317}
   loadedBombNumber: 0
 --- !u!1001 &1280851906
 PrefabInstance:
@@ -26021,7 +26242,7 @@ PrefabInstance:
     - target: {fileID: 3011469963919986407, guid: dc84a58afe1344547a230a5cb3c072c8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3011469963919986407, guid: dc84a58afe1344547a230a5cb3c072c8,
         type: 3}
@@ -26125,6 +26346,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc84a58afe1344547a230a5cb3c072c8, type: 3}
+--- !u!4 &1305012624 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8960166617461099854, guid: dc84a58afe1344547a230a5cb3c072c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1305012623}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1306468371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27473,7 +27700,7 @@ GameObject:
   - component: {fileID: 1392882104}
   - component: {fileID: 1392882103}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Water bomb Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38798,7 +39025,7 @@ PrefabInstance:
     - target: {fileID: 1861992942112290072, guid: ab0629588251841459e48150b154519c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1861992942112290072, guid: ab0629588251841459e48150b154519c,
         type: 3}
@@ -38872,7 +39099,7 @@ PrefabInstance:
     - target: {fileID: 1861992942112290072, guid: dba774b57d70ab24b9c8808b5d6e40a8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1861992942112290072, guid: dba774b57d70ab24b9c8808b5d6e40a8,
         type: 3}
@@ -38946,7 +39173,7 @@ PrefabInstance:
     - target: {fileID: 1861992942112290072, guid: 9df3335bfa439f642b99e35890d824dd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1861992942112290072, guid: 9df3335bfa439f642b99e35890d824dd,
         type: 3}
