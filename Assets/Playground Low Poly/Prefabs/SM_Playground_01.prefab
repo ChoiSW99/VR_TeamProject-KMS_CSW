@@ -13,10 +13,8 @@ GameObject:
   - component: {fileID: 6907853587362647301}
   - component: {fileID: 4580472932141985626}
   - component: {fileID: 7079701916596700422}
-  - component: {fileID: 2999039891458094898}
   - component: {fileID: 2742045477836807207}
   - component: {fileID: 6086648243569971086}
-  - component: {fileID: 8495689502181603048}
   m_Layer: 0
   m_Name: SM_Playground_01
   m_TagString: MAP
@@ -115,19 +113,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.3627474, y: 1.831522, z: 0.8645458}
   m_Center: {x: 0.7379304, y: 0.9125482, z: -1.5071216}
---- !u!65 &2999039891458094898
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4962223851112443088}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.4722269, y: 1.4218521, z: 0.7637806}
-  m_Center: {x: -1.1831883, y: 0.70771325, z: -1.5575042}
 --- !u!65 &2742045477836807207
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -154,16 +139,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9020424, y: 1.9516337, z: 0.8580332}
   m_Center: {x: 0.3094387, y: 0.9726039, z: 1.5103779}
---- !u!65 &8495689502181603048
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4962223851112443088}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.354908, y: 1.2290232, z: 0.8226671}
-  m_Center: {x: -0.8328495, y: 0.6112987, z: 1.5280609}

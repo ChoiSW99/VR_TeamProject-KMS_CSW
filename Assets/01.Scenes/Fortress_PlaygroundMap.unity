@@ -2274,9 +2274,9 @@ MonoBehaviour:
   OnPress:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1264653385}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Shoot
+      - m_Target: {fileID: 1554626060}
+        m_TargetAssemblyTypeName: ChargeShootBomb, Assembly-CSharp
+        m_MethodName: Charge
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2291,7 +2291,19 @@ MonoBehaviour:
       m_Calls: []
   OnRelease:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1554626060}
+        m_TargetAssemblyTypeName: ChargeShootBomb, Assembly-CSharp
+        m_MethodName: Shoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &60986788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14644,7 +14656,7 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 9f5a24a380916d14db9775daab4fe333,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
@@ -25548,6 +25560,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87259ca8cb1ab39448be2bf518b8ad6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chargingSlider: {fileID: 0}
+  chargingSpeed: 1
   remainingBomb: 640000000a00000001000000
   TMP_bombs:
   - {fileID: 506440248}
@@ -30208,6 +30222,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1540893154}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1554626056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2902709897703358072, guid: dc84a58afe1344547a230a5cb3c072c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1305012623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1554626060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554626056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2fee992a3a6b454b901b064069879b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCharging: 0
 --- !u!1001 &1558418556
 PrefabInstance:
   m_ObjectHideFlags: 0
