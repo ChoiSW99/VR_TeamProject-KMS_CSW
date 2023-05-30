@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] bombButtons;
     public int loadedBombNumber;
     private int bombButtonLength;
+    public Image[] bombButtonImg;
 
 
     private void Awake()
@@ -85,7 +86,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("ChangeLoadedBomb");
         for (int i=0; i< bombButtonLength; i++) // 0 1 2
         {
-            if(i == loadedBombNumber) // 
+            if(i == loadedBombNumber) 
             {
                 bombButtons[i].GetComponent<LoadBomb>().BombLoad();
                 loadedBombPrefab = bombButtons[i].GetComponent<LoadBomb>().bombPrefab;
@@ -97,7 +98,25 @@ public class GameManager : MonoBehaviour
 
             }
         }
+
+        ChangeBombImgAlpha();
     }
 
-    
+    private void ChangeBombImgAlpha()
+    {
+        Debug.Log("ChangeLoadedBomb");
+        for (int i = 0; i < bombButtonLength; i++) // 0 1 2
+        {
+            if (i == loadedBombNumber)
+            {
+                bombButtonImg[i].color = new Color(bombButtonImg[i].color.r, bombButtonImg[i].color.g, bombButtonImg[i].color.b, 1.0f);
+            }
+            else
+            {
+                bombButtonImg[i].color = new Color(bombButtonImg[i].color.r, bombButtonImg[i].color.g, bombButtonImg[i].color.b, 150.0f / 255.0f);
+            }
+        }
+    }
+
+
 }
