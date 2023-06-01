@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI[] TMP_bombs;
 
-    public GameObject loadedBombPrefab;
+    public GameObject loadedBomb;
 
     [Space]
     [Header("HP and Status")]
@@ -28,11 +28,10 @@ public class GameManager : MonoBehaviour
     public float myHp;
     public Status[] myStatus;
 
-    public GameObject[] bombButtons;
+    public GameObject[] bombType;
+    public Image[] bombImg;
     public int loadedBombNumber;
-    private int bombButtonLength;
-    public Image[] bombButtonImg;
-
+    private int numbombType;
 
     private void Awake()
     {
@@ -49,17 +48,19 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        bombButtonLength = bombButtons.Length;
+        numbombType = bombType.Length;
         
-        for (int i=0; i< bombButtonLength; i++)
+        for (int i=0; i< numbombType; i++)
         {
             TMP_bombs[i].text = remainingBomb[i].ToString();
         }
+
+        ChangeBombImgAlpha();
     }
 
     public void ChangeBomb_RightGrupBtn()
     {
-        if (loadedBombNumber == bombButtonLength - 1) // 마지막 포탄 종류
+        if (loadedBombNumber == numbombType - 1) // 마지막 포탄 종류
             loadedBombNumber = 0;
         else
             loadedBombNumber += 1;
@@ -72,7 +73,7 @@ public class GameManager : MonoBehaviour
     public void ChangeBomb_LeftGripBtn()
     {
         if (loadedBombNumber == 0) // 첫번째 포탄 종류 
-            loadedBombNumber = bombButtonLength-1;
+            loadedBombNumber = numbombType-1;
         else
             loadedBombNumber -= 1;
 
@@ -84,14 +85,13 @@ public class GameManager : MonoBehaviour
     private void ChangeLoadedBomb()
     {
         Debug.Log("ChangeLoadedBomb");
-        for (int i=0; i< bombButtonLength; i++) // 0 1 2
+        for (int i=0; i< numbombType; i++) // 0 1 2
         {
             if(i == loadedBombNumber) 
             {
-                bombButtons[i].GetComponent<LoadBomb>().BombLoad();
-                loadedBombPrefab = bombButtons[i].GetComponent<LoadBomb>().bombPrefab;
+                loadedBomb = bombType[i].GetComponent<BombType>().bombPrefab;
 
-                bombButtons[i].GetComponent<PlayQuickSound>().Play();
+                bombType[i].GetComponent<PlayQuickSound>().Play();
             }
             else
             {
@@ -105,15 +105,15 @@ public class GameManager : MonoBehaviour
     private void ChangeBombImgAlpha()
     {
         Debug.Log("ChangeLoadedBomb");
-        for (int i = 0; i < bombButtonLength; i++) // 0 1 2
+        for (int i = 0; i < numbombType; i++) // 0 1 2
         {
             if (i == loadedBombNumber)
             {
-                bombButtonImg[i].color = new Color(bombButtonImg[i].color.r, bombButtonImg[i].color.g, bombButtonImg[i].color.b, 1.0f);
+                bombImg[i].color = new Color(bombImg[i].color.r, bombImg[i].color.g, bombImg[i].color.b, 1.0f);
             }
             else
             {
-                bombButtonImg[i].color = new Color(bombButtonImg[i].color.r, bombButtonImg[i].color.g, bombButtonImg[i].color.b, 150.0f / 255.0f);
+                bombImg[i].color = new Color(bombImg[i].color.r, bombImg[i].color.g, bombImg[i].color.b, 150.0f / 255.0f);
             }
         }
     }

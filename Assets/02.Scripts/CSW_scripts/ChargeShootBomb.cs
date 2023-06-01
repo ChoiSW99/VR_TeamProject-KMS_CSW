@@ -37,7 +37,7 @@ public class ChargeShootBomb : MonoBehaviour
             Debug.Log("Shoot");
         }
         else
-            Debug.Log("Cannot Shoot Bomb. no more bomb.");
+            Debug.Log("Not Enough Bomb.");
     }
 
     private IEnumerator ShootCharging()
