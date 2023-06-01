@@ -89,5 +89,7 @@ public enum TurningState
 {
     NO = 0,
     RIGHT,
-    LEFT
+    LEFT,
+    UP,
+    DOWN
 }
