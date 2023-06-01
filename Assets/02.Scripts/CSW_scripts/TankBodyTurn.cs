@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class TankBodyTurn : MonoBehaviour
 {
-    private float receivedXValue;
+    // OnJoystickMove 스크립트
+    public OnJoystickMove joystickMoveScript;
+    //private float receivedXValue;
 
     public GameObject TankBody;
     public float rotationSpeed;
 
-    public TurningState turningState;
+    public TurningState_Body turningState;
 
-    // OnJoystickMove 스크립트
-    public OnJoystickMove joystickMoveScript;
+    
 
     private void Start()
     {
         // OnXValueChange 이벤트에 리스너를 등록합니다.
-        joystickMoveScript.OnXValueChange.AddListener(HandleXValueChange);
+        joystickMoveScript.OnXValueChange.AddListener(BodyTurn);
 
-        turningState = TurningState.NO;
+        turningState = TurningState_Body.STOP;
     }
 
-    private void HandleXValueChange(float xValue)
+    /*private void HandleXValueChange(float xValue)
     {
         // x 값이 변경될 때마다 호출되는 메서드입니다.
         receivedXValue = xValue;
@@ -34,27 +35,26 @@ public class TankBodyTurn : MonoBehaviour
         // 예를 들어, 캐릭터의 이동, 카메라 회전 등을 제어할 수 있습니다.
 
         BodyTurn(receivedXValue);
-    }
+    }*/
 
 
-    public void BodyTurn(float _receivedXValue)
+    public void BodyTurn(float received_X)
     {
         Debug.Log("BodyTurn");
-        //Debug.Log("BodyTurn(value_x) = " + value_x);
 
-        if (_receivedXValue > 0)
+        if (received_X > 0)
         {
-            turningState = TurningState.RIGHT;
+            turningState = TurningState_Body.RIGHT;
             StartCoroutine(TurnRight());
         }
-        else if (_receivedXValue < 0)
+        else if (received_X < 0)
         {
-            turningState = TurningState.LEFT;
+            turningState = TurningState_Body.LEFT;
             StartCoroutine(TurnLeft());
         }
         else
         {
-            turningState = TurningState.NO;
+            turningState = TurningState_Body.STOP;
         }
     }
 
@@ -66,7 +66,7 @@ public class TankBodyTurn : MonoBehaviour
             TankBody.transform.rotation *= Quaternion.Euler(0f, rotationSpeed * Time.deltaTime, 0f);
             yield return null;
 
-            if (turningState == TurningState.NO || turningState == TurningState.LEFT)
+            if (turningState == TurningState_Body.STOP || turningState == TurningState_Body.LEFT)
                 yield break;
         }
 }
@@ -79,17 +79,16 @@ public class TankBodyTurn : MonoBehaviour
             TankBody.transform.rotation *= Quaternion.Euler(0f, -(rotationSpeed * Time.deltaTime), 0f);
             yield return null;
 
-            if (turningState == TurningState.NO || turningState == TurningState.RIGHT)
+            if (turningState == TurningState_Body.STOP || turningState == TurningState_Body.RIGHT)
                 yield break;
         }
     }
 }
 
-public enum TurningState
+public enum TurningState_Body
 {
-    NO = 0,
+    STOP = 0,
     RIGHT,
     LEFT,
-    UP,
-    DOWN
 }
+

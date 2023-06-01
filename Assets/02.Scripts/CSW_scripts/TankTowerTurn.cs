@@ -3,28 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TankTowerTurn : MonoBehaviour
-{
-    private float receivedXValue;
-    private float receivedYValue;
-
-    public GameObject TankHead;
-    public float rotationSpeed;
-
-    public TurningState turningState;
-
+{    
     // OnJoystickMove 스크립트
     public OnJoystickMove joystickMoveScript;
+
+    //private float receivedXValue;
+    //private float receivedYValue;
+
+    public GameObject TankTower;
+    //public GameObject TankCanon;
+
+    public float rotationSpeed;
+
+    public TowerState turningState;
+    //public CanonState canonState;
+
+
 
     private void Start()
     {
         // OnXValueChange 이벤트에 리스너를 등록합니다.
-        joystickMoveScript.OnXValueChange.AddListener(HandleXValueChange);
-        joystickMoveScript.OnYValueChange.AddListener(HandleYValueChange);
+        joystickMoveScript.OnXValueChange.AddListener(TowerTurn);
 
-        turningState = TurningState.NO;
+        turningState = TowerState.STOP;
     }
 
-    private void HandleXValueChange(float xValue)
+    /*private void HandleXValueChange(float xValue)
     {
         // x 값이 변경될 때마다 호출되는 메서드입니다.
         receivedXValue = xValue;
@@ -36,8 +40,8 @@ public class TankTowerTurn : MonoBehaviour
         // 예를 들어, 캐릭터의 이동, 카메라 회전 등을 제어할 수 있습니다.
 
         BodyTurn(receivedXValue);
-    }
-    private void HandleYValueChange(float yValue)
+    }*/
+    /*private void HandleYValueChange(float yValue)
     {
         // y 값이 변경될 때마다 호출되는 메서드입니다.
         receivedYValue = yValue;
@@ -49,47 +53,25 @@ public class TankTowerTurn : MonoBehaviour
         // 예를 들어, 캐릭터의 이동, 카메라 회전 등을 제어할 수 있습니다.
 
         HeadTurn(receivedYValue);
-    }
+    }*/
 
-    public void BodyTurn(float _receivedXValue)
+    public void TowerTurn(float received_X)
     {
-        Debug.Log("BodyTurn");
-        //Debug.Log("BodyTurn(value_x) = " + value_x);
+        Debug.Log("TowerTurn");
 
-        if (_receivedXValue > 0)
+        if (received_X > 0)
         {
-            turningState = TurningState.RIGHT;
+            turningState = TowerState.RIGHT;
             StartCoroutine(TurnRight());
         }
-        else if (_receivedXValue < 0)
+        else if (received_X < 0)
         {
-            turningState = TurningState.LEFT;
+            turningState = TowerState.LEFT;
             StartCoroutine(TurnLeft());
         }
         else
         {
-            turningState = TurningState.NO;
-        }
-    }
-
-    public void HeadTurn(float _receivedYValue)
-    {
-        Debug.Log("HeadTurn");
-        //Debug.Log("BodyTurn(value_x) = " + value_x);
-
-        if (_receivedYValue > 0)
-        {
-            turningState = TurningState.UP;
-            StartCoroutine(TurnUp());
-        }
-        else if (_receivedYValue < 0)
-        {
-            turningState = TurningState.DOWN;
-            StartCoroutine(TurnDown());
-        }
-        else
-        {
-            turningState = TurningState.NO;
+            turningState = TowerState.STOP;
         }
     }
 
@@ -98,10 +80,10 @@ public class TankTowerTurn : MonoBehaviour
     {
         while (true)
         {
-            TankHead.transform.rotation *= Quaternion.Euler(0f, rotationSpeed * Time.deltaTime, 0f);
+            TankTower.transform.rotation *= Quaternion.Euler(0f, rotationSpeed * Time.deltaTime, 0f);
             yield return null;
 
-            if (turningState == TurningState.NO || turningState == TurningState.LEFT)
+            if (turningState == TowerState.STOP || turningState == TowerState.LEFT)
                 yield break;
         }
     }
@@ -111,38 +93,21 @@ public class TankTowerTurn : MonoBehaviour
     {
         while (true)
         {
-            TankHead.transform.rotation *= Quaternion.Euler(0f, -(rotationSpeed * Time.deltaTime), 0f);
+            TankTower.transform.rotation *= Quaternion.Euler(0f, -(rotationSpeed * Time.deltaTime), 0f);
             yield return null;
 
-            if (turningState == TurningState.NO || turningState == TurningState.RIGHT)
+            if (turningState == TowerState.STOP || turningState == TowerState.RIGHT)
                 yield break;
         }
     }
 
-    // turn up
-    private IEnumerator TurnUp()
-    {
-        while (true)
-        {
-            TankHead.transform.rotation *= Quaternion.Euler(0f, rotationSpeed * Time.deltaTime, 0f);
-            yield return null;
+    
+}
 
-            if (turningState == TurningState.NO || turningState == TurningState.DOWN)
-                yield break;
-        }
-    }
-
-    // turn down
-    private IEnumerator TurnDown()
-    {
-        while (true)
-        {
-            TankHead.transform.rotation *= Quaternion.Euler(0f, -(rotationSpeed * Time.deltaTime), 0f);
-            yield return null;
-
-            if (turningState == TurningState.NO || turningState == TurningState.UP)
-                yield break;
-        }
-    }
+public enum TowerState
+{
+    STOP = 0,
+    RIGHT,
+    LEFT,
 }
 
