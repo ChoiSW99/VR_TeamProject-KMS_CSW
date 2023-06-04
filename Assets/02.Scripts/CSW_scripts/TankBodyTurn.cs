@@ -63,20 +63,22 @@ public class TankBodyTurn : MonoBehaviour
     {
         while (true)
         {
-            TankBody.transform.rotation *= Quaternion.Euler(0f, rotationSpeed * Time.deltaTime, 0f);
+            Debug.Log("Time.deltaTime : "+ Time.deltaTime);
+            Debug.Log("rotationSpeed * Time.deltaTime : " + rotationSpeed * Time.deltaTime);
+            TankBody.transform.Rotate(Vector3.up, rotationSpeed);
             yield return null;
 
             if (turningState == TurningState_Body.STOP || turningState == TurningState_Body.LEFT)
                 yield break;
         }
-}
+    }
 
     // turn left
     private IEnumerator TurnLeft()
     {
         while (true)
         {
-            TankBody.transform.rotation *= Quaternion.Euler(0f, -(rotationSpeed * Time.deltaTime), 0f);
+            TankBody.transform.Rotate(Vector3.up, -rotationSpeed);
             yield return null;
 
             if (turningState == TurningState_Body.STOP || turningState == TurningState_Body.RIGHT)
