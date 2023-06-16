@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062b9a6b9cf42184db9e3758dc9b8c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 55
   status: 0
   explosionEffectParticle: {fileID: 6213194445523200851, guid: d1434cb16b4540a48a0cb7be6179a7de,
     type: 3}
