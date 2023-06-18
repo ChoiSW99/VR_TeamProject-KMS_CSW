@@ -11,5 +11,12 @@ public class TankData : ScriptableObject
 
     [SerializeField]
     public Status[] status;
-    
+
+    public event System.Action<float> OnHPValueChanged;
+
+    public void SetGaugeValue(float value)
+    {
+        hp = value;
+        OnHPValueChanged?.Invoke(value);
+    }
 }

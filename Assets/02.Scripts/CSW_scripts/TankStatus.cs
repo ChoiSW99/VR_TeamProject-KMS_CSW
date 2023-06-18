@@ -11,6 +11,21 @@ public class TankStatus : MonoBehaviour
     public Transform fillArea;
     //float fSliderBarTime;
 
+    private void OnEnable()
+    {
+        tankData.OnHPValueChanged += UpdateSliderValue;
+    }
+
+    private void OnDisable()
+    {
+        tankData.OnHPValueChanged -= UpdateSliderValue;
+    }
+
+    private void UpdateSliderValue(float value)
+    {
+        hp_Slider.value = value;
+    }
+
     private void Start() {
         if(hp_Slider == null)
             hp_Slider = transform.Find("HP_Slider").GetComponent<Slider>();
@@ -18,6 +33,7 @@ public class TankStatus : MonoBehaviour
         if(fillArea == null)
             fillArea = findAllChildren(hp_Slider.transform, "Fill Area");
 
+        UpdateSliderValue(tankData.hp);
     }
 
     void Update()

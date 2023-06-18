@@ -14,6 +14,7 @@ public class Bomb : MonoBehaviour
 
     private void OnCollisionEnter(Collision coll)
     {
+        DamageToTank();
         // instantiate explosion effect
         GameObject explosionEffect = Instantiate(explosionEffectParticle, transform.position, Quaternion.identity);
 
@@ -26,7 +27,7 @@ public class Bomb : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
 
-        DamageToTank();
+        
 
         // bomb destroy
         Destroy(this.gameObject, 2.0f);
@@ -38,9 +39,11 @@ public class Bomb : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider collider in colliders)
         {
+            //Debug.Log(collider.gameObject.name);
             if(collider.gameObject.tag == "TANK")
             {
-                collider.gameObject.GetComponent<TankStatus>().tankData.hp -= damage;
+                Debug.Log("DamageToTank()");
+                collider.gameObject.GetComponent<TankStatus>().tankData.SetGaugeValue(collider.gameObject.GetComponent<TankStatus>().tankData.hp-damage);
             }
         }
     }

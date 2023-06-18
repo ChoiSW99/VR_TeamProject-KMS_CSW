@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TankData
   m_EditorClassIdentifier: 
   hp: 100
-  moveSpeed: 10
+  moveSpeed: 1
   status: 

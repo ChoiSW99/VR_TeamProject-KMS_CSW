@@ -12,7 +12,7 @@ public class TankCanonControl : MonoBehaviour
 
     private void Start()
     {
-        // OnYValueChange ÀÌº¥Æ®¿¡ ¸®½º³Ê¸¦ µî·ÏÇÕ´Ï´Ù.
+        // OnYValueChange ï¿½Ìºï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ê¸ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         joystickMoveScript.OnYValueChange.AddListener(CanonTurn);
 
         canonState = CanonState.STOP;
@@ -23,12 +23,12 @@ public class TankCanonControl : MonoBehaviour
         Debug.Log("HeadTurn");
         //Debug.Log("BodyTurn(value_x) = " + value_x);
 
-        if (received_Y > 0)
+        if (received_Y > 0.2f)
         {
             canonState = CanonState.UP;
             StartCoroutine(CanonUp());
         }
-        else if (received_Y < 0)
+        else if (received_Y < -0.2f)
         {
             canonState = CanonState.DOWN;
             StartCoroutine(CanonDown());
