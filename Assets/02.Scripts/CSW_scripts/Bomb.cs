@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(PlaySound))]
 public class Bomb : MonoBehaviour
@@ -31,7 +32,6 @@ public class Bomb : MonoBehaviour
         GetComponent<Collider>().enabled = false;
         GetComponent<TrailRenderer>().enabled = false;
         
-
         // bomb destroy
         Destroy(this.gameObject, 2.0f);
     }
@@ -47,7 +47,42 @@ public class Bomb : MonoBehaviour
             {
                 Debug.Log("DamageToTank()");
                 collider.gameObject.GetComponent<TankHP>().GetDamage(damage);
+                
+                collider.gameObject.GetComponent<TankHP>().GetStatus(status);
+                //TankStatusChange(collider);
+                
             }
         }
     }
+
+    // void TankStatusChange(Collider collider)
+    // {
+    //     if(status == Status.Fire)
+    //     {
+    //         collider.gameObject.GetComponent<MeshRenderer>().material.color = new Color(150.0f, 0.0f, 0.0f);
+    //         for (int i = 0; i < 5; i++)
+    //         {
+    //             collider.transform.GetChild(i).GetComponent<MeshRenderer>().material.color = new Color(150.0f, 0.0f, 0.0f);;
+    //         }
+            
+    //         StartCoroutine(OnFireStatus(collider));
+    //     }
+    //     else if(status == Status.Water)
+    //     {
+    //         collider.gameObject.GetComponent<MeshRenderer>().material.color = new Color(0.0f, 0.0f, 150.0f);
+    //         for (int i = 0; i < 5; i++)
+    //         {
+    //             collider.transform.GetChild(i).GetComponent<MeshRenderer>().material.color = new Color(0.0f, 0.0f, 150.0f);;
+    //         }
+    //         collider.gameObject.GetComponent<NavMeshAgent>().speed = 1.0f;
+    //     }
+    // }
+
+    // IEnumerator OnFireStatus(Collider collider)
+    // {
+    //     while(true){
+    //         yield return new WaitForSeconds(0.2f);
+    //         collider.gameObject.GetComponent<TankHP>().GetDamage(2);
+    //     }
+    // }
 }

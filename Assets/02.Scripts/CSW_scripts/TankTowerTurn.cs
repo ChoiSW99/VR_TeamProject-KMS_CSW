@@ -29,12 +29,12 @@ public class TankTowerTurn : MonoBehaviour
     {
         Debug.Log("TowerTurn");
 
-        if (received_X > 0.1f)
+        if (received_X > 0.2f)
         {
             turningState = TowerState.RIGHT;
             StartCoroutine(TurnRight());
         }
-        else if (received_X < -0.1f)
+        else if (received_X < -0.2f)
         {
             turningState = TowerState.LEFT;
             StartCoroutine(TurnLeft());
