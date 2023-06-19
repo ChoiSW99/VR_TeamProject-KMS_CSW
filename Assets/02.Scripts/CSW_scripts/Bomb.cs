@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(PlaySound))]
 public class Bomb : MonoBehaviour
 {
-    public int damage; // damage value
+    public float damage; // damage value
+    public float explosionRadius; // damage radius
     public Status status; // status type
 
     public GameObject explosionEffectParticle;
 
     private void OnCollisionEnter(Collision coll)
     {
+        DamageToTank();
         // instantiate explosion effect
         GameObject explosionEffect = Instantiate(explosionEffectParticle, transform.position, Quaternion.identity);
 
@@ -24,16 +27,24 @@ public class Bomb : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
 
+        
+
         // bomb destroy
         Destroy(this.gameObject, 2.0f);
     }
-}
 
-// ªÛ≈¬¿ÃªÛ¿ª ≥™≈∏≥ª¥¬ ø≠∞≈«¸
-public enum Status
-{
-    None = 0, // None
-    Water, // move speed reduction
-    Fire // burns
-
+    void DamageToTank()
+    {
+        // Ìè≠Î∞ú Î°úÏßÅ Íµ¨ÌòÑ
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        foreach (Collider collider in colliders)
+        {
+            //Debug.Log(collider.gameObject.name);
+            if(collider.gameObject.tag == "TANK")
+            {
+                Debug.Log("DamageToTank()");
+                collider.gameObject.GetComponent<TankStatus>().tankData.SetGaugeValue(collider.gameObject.GetComponent<TankStatus>().tankData.hp-damage);
+            }
+        }
+    }
 }
