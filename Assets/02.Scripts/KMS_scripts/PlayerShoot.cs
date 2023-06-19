@@ -18,7 +18,7 @@ public class PlayerShoot : MonoBehaviour
         ShootPower = 3000f;
     }
 
-    void Shoot()
+    public void Shoot()
     {
         //	Æ÷ÅºÀ» »ý¼º
         GameObject BulletInstance = Instantiate(Bomb, ShootEnd.transform.position,
