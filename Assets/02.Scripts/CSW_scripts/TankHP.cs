@@ -3,41 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TankStatus : MonoBehaviour
+public class TankHP : MonoBehaviour
 {
     public TankData tankData;
 
     public Slider hp_Slider;
+    public float hpValue;
     public Transform fillArea;
-    //float fSliderBarTime;
 
-    private void OnEnable()
+    private void Start()
     {
-        tankData.OnHPValueChanged += UpdateSliderValue;
+        if (hp_Slider == null)
+            hp_Slider = transform.Find("HP_Slider").GetComponent<Slider>();
+
+        if (fillArea == null)
+            fillArea = findAllChildren(hp_Slider.transform, "Fill Area");
+
+        hpValue = tankData.hp;
+
+        UpdateSliderValue(hpValue);
     }
 
-    private void OnDisable()
+    public void GetDamage(float value)
     {
-        tankData.OnHPValueChanged -= UpdateSliderValue;
+        hpValue -= value;
+        if(hpValue <= 0.0f)
+            Destroy(transform.root.gameObject, 0.3f);
+
+        UpdateSliderValue(hpValue);
     }
 
     private void UpdateSliderValue(float value)
     {
         hp_Slider.value = value;
-    }
 
-    private void Start() {
-        if(hp_Slider == null)
-            hp_Slider = transform.Find("HP_Slider").GetComponent<Slider>();
-
-        if(fillArea == null)
-            fillArea = findAllChildren(hp_Slider.transform, "Fill Area");
-
-        UpdateSliderValue(tankData.hp);
-    }
-
-    void Update()
-    {
         if (hp_Slider.value <= 0)
             fillArea.gameObject.SetActive(false);
         else

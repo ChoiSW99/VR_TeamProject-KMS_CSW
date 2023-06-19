@@ -23,7 +23,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1861992942112290072
 Transform:
   m_ObjectHideFlags: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  explosionRadius: 2
+  explosionRadius: 2.4
   status: 2
   explosionEffectParticle: {fileID: 7181925614587302344, guid: 12d795f3746d2bb47bac72c4fcb1ad81,
     type: 3}
@@ -333,7 +333,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.5480766
         inSlope: 0
         outSlope: 0
         tangentMode: 0

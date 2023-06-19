@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062b9a6b9cf42184db9e3758dc9b8c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 55
-  explosionRadius: 2
+  damage: 10
+  explosionRadius: 2.4
   status: 0
   explosionEffectParticle: {fileID: 6213194445523200851, guid: d1434cb16b4540a48a0cb7be6179a7de,
     type: 3}
@@ -333,7 +333,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.5384617
         inSlope: 0
         outSlope: 0
         tangentMode: 0

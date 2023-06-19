@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
+    private GameManager gameManager;
+    private int[] remainingBomb;
+    private TMPro.TextMeshProUGUI[] TMP_bombs;
+
     public GameObject Bomb;
 
     public Transform ShootEnd;
@@ -12,28 +16,44 @@ public class PlayerShoot : MonoBehaviour
 
     void Start()
     {
-        //½ÃÀÛ°ú µ¿½Ã¿¡ ¹°Ã¼°¡ Ãß¶ôÇÏÁö ¾Êµµ·Ï ÇÏ±â À§ÇÑ ÄÚµå
-        GetComponent<Rigidbody>().isKinematic = true;
+        gameManager = GameManager.Instance;
+        remainingBomb = gameManager.remainingBomb;
+        TMP_bombs = gameManager.TMP_bombs;
+
+        //ï¿½ï¿½ï¿½Û°ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ß¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½
+        //GetComponent<Rigidbody>().isKinematic = true;
 
         ShootPower = 3000f;
     }
 
     public void Shoot()
     {
-        //	Æ÷ÅºÀ» »ý¼º
-        GameObject BulletInstance = Instantiate(Bomb, ShootEnd.transform.position,
+        Debug.Log("gameManager.loadedBombNumber : " + gameManager.loadedBombNumber);
+        if (gameManager.remainingBomb[gameManager.loadedBombNumber] > 0)
+        {
+            Bomb = gameManager.bombType[gameManager.loadedBombNumber].GetComponent<BombType>().bombPrefab;
+
+            gameManager.remainingBomb[gameManager.loadedBombNumber]--;
+            gameManager.TMP_bombs[gameManager.loadedBombNumber].text = gameManager.remainingBomb[gameManager.loadedBombNumber].ToString();
+
+            //	ï¿½ï¿½Åºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            GameObject BulletInstance = Instantiate(Bomb, ShootEnd.transform.position,
                                                     ShootEnd.transform.rotation) as GameObject;
 
-        //	Æ÷ÅºÀ» ³¯¸± ¹æÇâ ¹× ÆÄ¿ö ¼³Á¤
-        BulletInstance.GetComponent<Rigidbody>().AddForce(ShootEnd.transform.forward * ShootPower);
+            //	ï¿½ï¿½Åºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½
+            BulletInstance.GetComponent<Rigidbody>().AddForce(ShootEnd.transform.forward * ShootPower);
 
-        //¹°Ã¼°¡ ¿©·¯ ¹°¸®·ÂÀ» ¹Þµµ·Ï Çã¿ëÇÏ´Â ÄÚµå
-        //	Æ÷ÅºÀ» ³¯¸± ¹æÇâÀ¸·Î Æ÷Åº ¹ß»ç
-        BulletInstance.GetComponent<Rigidbody>().isKinematic = false;
+            //ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Úµï¿½
+            //	ï¿½ï¿½Åºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Åº ï¿½ß»ï¿½
+            BulletInstance.GetComponent<Rigidbody>().isKinematic = false;
+        }
+        else
+            Debug.Log("Not Enough Bomb.");
+        
 
         //gameObject.GetComponent<Rigidbody>().AddForce(-ShootEnd.transform.forward * ShootPower);
 
 
-        Destroy(BulletInstance, 0.2f);
+        //Destroy(BulletInstance, 0.2f);
     }
 }

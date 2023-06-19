@@ -14,6 +14,9 @@ public class Bomb : MonoBehaviour
 
     private void OnCollisionEnter(Collision coll)
     {
+        Debug.Log(coll.gameObject.name);
+        if(coll.gameObject.tag == "TANK")
+            return; 
         DamageToTank();
         // instantiate explosion effect
         GameObject explosionEffect = Instantiate(explosionEffectParticle, transform.position, Quaternion.identity);
@@ -26,7 +29,7 @@ public class Bomb : MonoBehaviour
         // bomb disappear
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
-
+        GetComponent<TrailRenderer>().enabled = false;
         
 
         // bomb destroy
@@ -40,10 +43,10 @@ public class Bomb : MonoBehaviour
         foreach (Collider collider in colliders)
         {
             //Debug.Log(collider.gameObject.name);
-            if(collider.gameObject.tag == "TANK")
+            if(collider.gameObject.tag == "ENEMY")
             {
                 Debug.Log("DamageToTank()");
-                collider.gameObject.GetComponent<TankStatus>().tankData.SetGaugeValue(collider.gameObject.GetComponent<TankStatus>().tankData.hp-damage);
+                collider.gameObject.GetComponent<TankHP>().GetDamage(damage);
             }
         }
     }
