@@ -34,6 +34,9 @@ public class TankHP : MonoBehaviour
         hpValue -= value;
         if(hpValue <= 0.0f)
         {
+            if(transform.root.gameObject.name == "TankFree_Red")
+                return;
+
             Destroy(transform.root.gameObject, 0.05f);
             if(!GetComponent<AudioSource>().isPlaying)
                 GetComponent<PlayQuickSound>().Play();

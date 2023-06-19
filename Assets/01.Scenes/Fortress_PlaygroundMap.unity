@@ -9617,6 +9617,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1081177879}
+    - target: {fileID: 1028554411, guid: a30540c41d7d5ed4281d72b4916afb5e, type: 3}
+      propertyPath: fireRate
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028554411, guid: a30540c41d7d5ed4281d72b4916afb5e, type: 3}
+      propertyPath: bulletSpeed
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 672221882971161554, guid: a30540c41d7d5ed4281d72b4916afb5e,
         type: 3}
       propertyPath: m_RootOrder
@@ -9676,6 +9684,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TankFree_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623346556741452290, guid: a30540c41d7d5ed4281d72b4916afb5e,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623346556741452290, guid: a30540c41d7d5ed4281d72b4916afb5e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a30540c41d7d5ed4281d72b4916afb5e, type: 3}

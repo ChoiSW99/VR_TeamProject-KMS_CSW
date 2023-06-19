@@ -1,11 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AI;
 
-[RequireComponent(typeof(PlaySound))]
-public class Bomb : MonoBehaviour
+public class EnemyBomb : MonoBehaviour
 {
     public float damage; // damage value
     public float explosionRadius; // damage radius
@@ -17,23 +14,30 @@ public class Bomb : MonoBehaviour
     {
         Debug.Log(coll.gameObject.name);
         if(coll.gameObject.tag == "TANK")
-            return; 
-        DamageToTank();
+        {
+            coll.gameObject.GetComponent<TankHP>().GetDamage(damage);
+
+            GameObject explosionEffect = Instantiate(explosionEffectParticle, transform.position, Quaternion.identity);
+
+            Destroy(explosionEffect, 2.0f);
+
+            // explosion sound
+            GetComponent<PlaySound>().Play();
+
+            // bomb disappear
+            GetComponent<MeshRenderer>().enabled = false;
+            GetComponent<Collider>().enabled = false;
+            GetComponent<TrailRenderer>().enabled = false;
+            
+            // bomb destroy
+            Destroy(this.gameObject, 2.0f);
+        }
+        else
+            Destroy(this.gameObject);
+        //    return; 
+        //DamageToTank();
         // instantiate explosion effect
-        GameObject explosionEffect = Instantiate(explosionEffectParticle, transform.position, Quaternion.identity);
-
-        Destroy(explosionEffect, 2.0f);
-
-        // explosion sound
-        GetComponent<PlaySound>().Play();
-
-        // bomb disappear
-        GetComponent<MeshRenderer>().enabled = false;
-        GetComponent<Collider>().enabled = false;
-        GetComponent<TrailRenderer>().enabled = false;
         
-        // bomb destroy
-        Destroy(this.gameObject, 2.0f);
     }
 
     void DamageToTank()
