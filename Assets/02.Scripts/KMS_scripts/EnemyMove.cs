@@ -9,6 +9,7 @@ public class EnemyMove : MonoBehaviour
     public Transform target;
 
     NavMeshAgent nav;
+    
 
     void Awake()
     {
