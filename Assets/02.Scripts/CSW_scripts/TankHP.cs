@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class TankHP : MonoBehaviour
 {
@@ -34,8 +35,12 @@ public class TankHP : MonoBehaviour
         hpValue -= value;
         if(hpValue <= 0.0f)
         {
-            if(transform.root.gameObject.name == "TankFree_Red")
+            if (transform.root.gameObject.name == "TankFree_Red")
+            {
+                SceneManager.LoadScene("2.End Scene");
                 return;
+            }
+                
 
             Destroy(transform.root.gameObject, 0.05f);
             if(!GetComponent<AudioSource>().isPlaying)
