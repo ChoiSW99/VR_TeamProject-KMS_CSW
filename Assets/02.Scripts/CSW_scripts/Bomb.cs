@@ -54,35 +54,4 @@ public class Bomb : MonoBehaviour
             }
         }
     }
-
-    // void TankStatusChange(Collider collider)
-    // {
-    //     if(status == Status.Fire)
-    //     {
-    //         collider.gameObject.GetComponent<MeshRenderer>().material.color = new Color(150.0f, 0.0f, 0.0f);
-    //         for (int i = 0; i < 5; i++)
-    //         {
-    //             collider.transform.GetChild(i).GetComponent<MeshRenderer>().material.color = new Color(150.0f, 0.0f, 0.0f);;
-    //         }
-            
-    //         StartCoroutine(OnFireStatus(collider));
-    //     }
-    //     else if(status == Status.Water)
-    //     {
-    //         collider.gameObject.GetComponent<MeshRenderer>().material.color = new Color(0.0f, 0.0f, 150.0f);
-    //         for (int i = 0; i < 5; i++)
-    //         {
-    //             collider.transform.GetChild(i).GetComponent<MeshRenderer>().material.color = new Color(0.0f, 0.0f, 150.0f);;
-    //         }
-    //         collider.gameObject.GetComponent<NavMeshAgent>().speed = 1.0f;
-    //     }
-    // }
-
-    // IEnumerator OnFireStatus(Collider collider)
-    // {
-    //     while(true){
-    //         yield return new WaitForSeconds(0.2f);
-    //         collider.gameObject.GetComponent<TankHP>().GetDamage(2);
-    //     }
-    // }
 }

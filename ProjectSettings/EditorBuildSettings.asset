@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/01.Scenes/Fortress.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/01.Scenes/0.Start Scene.unity
+    guid: c8c0766ae62119848993375c4f1e4ba7
+  - enabled: 1
+    path: Assets/01.Scenes/1.Fortress_PlaygroundMap.unity
+    guid: c05f6718f6e06174da5b23f43c6652f8
+  - enabled: 1
+    path: Assets/01.Scenes/2.End Scene.unity
+    guid: c174069623a1bd8409851627eaff0c02
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: ed72be55522c8448bae8b0d66fa21adf,
       type: 2}
